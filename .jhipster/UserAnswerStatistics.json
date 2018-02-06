@@ -1,0 +1,40 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "question",
+            "otherEntityName": "baseQuestion",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "userId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "rightTimes",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "wrongTimes",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "continuousRightTimes",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "continuousWrongTimes",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20180206010722",
+    "entityTableName": "user_answer_statistics",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "exam"
+}

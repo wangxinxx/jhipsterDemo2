@@ -1,0 +1,48 @@
+
+<div *ngIf="userAnswerStatistics">
+    <h2><span>User Answer Statistics</span> {{userAnswerStatistics.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>User Id</span></dt>
+        <dd>
+            <span>{{userAnswerStatistics.userId}}</span>
+        </dd>
+        <dt><span>Right Times</span></dt>
+        <dd>
+            <span>{{userAnswerStatistics.rightTimes}}</span>
+        </dd>
+        <dt><span>Wrong Times</span></dt>
+        <dd>
+            <span>{{userAnswerStatistics.wrongTimes}}</span>
+        </dd>
+        <dt><span>Continuous Right Times</span></dt>
+        <dd>
+            <span>{{userAnswerStatistics.continuousRightTimes}}</span>
+        </dd>
+        <dt><span>Continuous Wrong Times</span></dt>
+        <dd>
+            <span>{{userAnswerStatistics.continuousWrongTimes}}</span>
+        </dd>
+        <dt><span>Question</span></dt>
+        <dd>
+            <div *ngIf="userAnswerStatistics.questionId">
+                <a [routerLink]="['/base-question-exam', userAnswerStatistics.questionId]">{{userAnswerStatistics.questionId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'user-answer-statistics-exam/'+ userAnswerStatistics.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

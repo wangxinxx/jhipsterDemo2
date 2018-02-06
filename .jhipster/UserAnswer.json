@@ -1,0 +1,41 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "question",
+            "otherEntityName": "baseQuestion",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "userId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "judgeAnswer",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "textAnswer",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "choiceAnswerIds",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "result",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20180206010721",
+    "entityTableName": "user_answer",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "exam"
+}

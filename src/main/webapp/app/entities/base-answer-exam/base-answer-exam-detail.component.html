@@ -1,0 +1,36 @@
+
+<div *ngIf="baseAnswer">
+    <h2><span>Base Answer</span> {{baseAnswer.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Content</span></dt>
+        <dd>
+            <span>{{baseAnswer.content}}</span>
+        </dd>
+        <dt><span>Result</span></dt>
+        <dd>
+            <span>{{baseAnswer.result}}</span>
+        </dd>
+        <dt><span>Question</span></dt>
+        <dd>
+            <div *ngIf="baseAnswer.questionId">
+                <a [routerLink]="['/base-question-exam', baseAnswer.questionId]">{{baseAnswer.questionId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'base-answer-exam/'+ baseAnswer.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

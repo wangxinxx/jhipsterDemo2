@@ -1,0 +1,72 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "answers",
+            "otherEntityName": "baseAnswer",
+            "otherEntityRelationshipName": "question"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "content",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "QuestionType",
+            "fieldValues": "MULTIPLE_CHOICE,MORE_MULTIPLE_CHOICE,TRUE_FALSE,FILL_BLANK,SHORT_ANSWER,ESSAY_QUESTIONS"
+        },
+        {
+            "fieldName": "difficult",
+            "fieldType": "QuestionDifficult",
+            "fieldValues": "SO_EASY,EASY,NORMAL,HARD,VERY_HARD"
+        },
+        {
+            "fieldName": "courseId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "exposeTimes",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "rightTimes",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "wrongTimes",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "tips",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tags",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "judgeResult",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "textResult",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        }
+    ],
+    "changelogDate": "20180206010719",
+    "entityTableName": "base_question",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "exam"
+}

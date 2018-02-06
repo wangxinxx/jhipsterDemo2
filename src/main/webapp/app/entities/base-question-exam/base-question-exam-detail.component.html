@@ -1,0 +1,70 @@
+
+<div *ngIf="baseQuestion">
+    <h2><span>Base Question</span> {{baseQuestion.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Name</span></dt>
+        <dd>
+            <span>{{baseQuestion.name}}</span>
+        </dd>
+        <dt><span>Content</span></dt>
+        <dd>
+            <span>{{baseQuestion.content}}</span>
+        </dd>
+        <dt><span>Type</span></dt>
+        <dd>
+            <span>{{baseQuestion.type}}</span>
+        </dd>
+        <dt><span>Difficult</span></dt>
+        <dd>
+            <span>{{baseQuestion.difficult}}</span>
+        </dd>
+        <dt><span>Course Id</span></dt>
+        <dd>
+            <span>{{baseQuestion.courseId}}</span>
+        </dd>
+        <dt><span>Expose Times</span></dt>
+        <dd>
+            <span>{{baseQuestion.exposeTimes}}</span>
+        </dd>
+        <dt><span>Right Times</span></dt>
+        <dd>
+            <span>{{baseQuestion.rightTimes}}</span>
+        </dd>
+        <dt><span>Wrong Times</span></dt>
+        <dd>
+            <span>{{baseQuestion.wrongTimes}}</span>
+        </dd>
+        <dt><span>Tips</span></dt>
+        <dd>
+            <span>{{baseQuestion.tips}}</span>
+        </dd>
+        <dt><span>Tags</span></dt>
+        <dd>
+            <span>{{baseQuestion.tags}}</span>
+        </dd>
+        <dt><span>Judge Result</span></dt>
+        <dd>
+            <span>{{baseQuestion.judgeResult}}</span>
+        </dd>
+        <dt><span>Text Result</span></dt>
+        <dd>
+            <span>{{baseQuestion.textResult}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'base-question-exam/'+ baseQuestion.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

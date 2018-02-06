@@ -1,0 +1,73 @@
+enum QuestionType {
+    MULTIPLE_CHOICE,// 单项选择
+    MORE_MULTIPLE_CHOICE, // 多项选择
+    TRUE_FALSE, // 判断题
+    FILL_BLANK, // 填空题
+    SHORT_ANSWER, // 简答题
+    ESSAY_QUESTIONS// 论述题
+}
+enum QuestionDifficult {
+    SO_EASY,
+    EASY,
+    NORMAL,
+    HARD,
+    VERY_HARD
+}
+entity BaseQuestion {
+	name String
+    content TextBlob
+    type QuestionType
+    difficult QuestionDifficult
+    courseId Long
+    exposeTimes Long //曝光次数
+    rightTimes Long //正确次数
+    wrongTimes Long // 错误次数
+    tips String
+    tags String
+    judgeResult Boolean
+    textResult TextBlob
+}
+entity BaseAnswer {
+	content String
+    result Boolean
+}
+
+// 每一次答题的结果
+entity UserAnswer {
+    userId Long //用户 id
+	judgeAnswer Boolean //判断题答案
+    textAnswer TextBlob // 其他主观题答案
+    choiceAnswerIds String // 单选和多选答案，使用;分隔选中答案的 id
+    result Boolean //答题最终结果对或错。
+}
+
+// 个人答题统计
+entity UserAnswerStatistics {
+	userId Long //用户 id
+    rightTimes Long //正确次数
+    wrongTimes Long // 错误次数
+    continuousRightTimes Long //连续正确次数
+    continuousWrongTimes Long //连续错误次数
+}
+
+relationship OneToMany {
+	BaseQuestion{answers} to BaseAnswer{question}
+}
+
+relationship ManyToOne {
+	UserAnswer{question} to BaseQuestion
+    UserAnswerStatistics{question} to BaseQuestion
+    
+}
+
+
+// Set pagination options
+//paginate JobHistory, Employee with infinite-scroll
+paginate * with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl 
+// Set an angular suffix
+angularSuffix * with exam

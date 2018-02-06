@@ -1,0 +1,96 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myBaseQuestionLabel">Create or edit a Base Question</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!baseQuestion.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="baseQuestion.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="baseQuestion.name" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_content">Content</label>
+            <textarea class="form-control" name="content" id="field_content"
+                [(ngModel)]="baseQuestion.content" ></textarea>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_type">Type</label>
+            <select class="form-control" name="type" [(ngModel)]="baseQuestion.type" id="field_type" >
+                <option value="MULTIPLE_CHOICE">MULTIPLE_CHOICE</option>
+                <option value="MORE_MULTIPLE_CHOICE">MORE_MULTIPLE_CHOICE</option>
+                <option value="TRUE_FALSE">TRUE_FALSE</option>
+                <option value="FILL_BLANK">FILL_BLANK</option>
+                <option value="SHORT_ANSWER">SHORT_ANSWER</option>
+                <option value="ESSAY_QUESTIONS">ESSAY_QUESTIONS</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_difficult">Difficult</label>
+            <select class="form-control" name="difficult" [(ngModel)]="baseQuestion.difficult" id="field_difficult" >
+                <option value="SO_EASY">SO_EASY</option>
+                <option value="EASY">EASY</option>
+                <option value="NORMAL">NORMAL</option>
+                <option value="HARD">HARD</option>
+                <option value="VERY_HARD">VERY_HARD</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_courseId">Course Id</label>
+            <input type="number" class="form-control" name="courseId" id="field_courseId"
+                [(ngModel)]="baseQuestion.courseId" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_exposeTimes">Expose Times</label>
+            <input type="number" class="form-control" name="exposeTimes" id="field_exposeTimes"
+                [(ngModel)]="baseQuestion.exposeTimes" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_rightTimes">Right Times</label>
+            <input type="number" class="form-control" name="rightTimes" id="field_rightTimes"
+                [(ngModel)]="baseQuestion.rightTimes" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_wrongTimes">Wrong Times</label>
+            <input type="number" class="form-control" name="wrongTimes" id="field_wrongTimes"
+                [(ngModel)]="baseQuestion.wrongTimes" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_tips">Tips</label>
+            <input type="text" class="form-control" name="tips" id="field_tips"
+                [(ngModel)]="baseQuestion.tips" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_tags">Tags</label>
+            <input type="text" class="form-control" name="tags" id="field_tags"
+                [(ngModel)]="baseQuestion.tags" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_judgeResult">Judge Result</label>
+            <input type="checkbox" class="form-control" name="judgeResult" id="field_judgeResult"
+                [(ngModel)]="baseQuestion.judgeResult" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_textResult">Text Result</label>
+            <textarea class="form-control" name="textResult" id="field_textResult"
+                [(ngModel)]="baseQuestion.textResult" ></textarea>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>
