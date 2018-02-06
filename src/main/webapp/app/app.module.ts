@@ -26,6 +26,7 @@ import {
     PageRibbonComponent,
     ErrorComponent
 } from './layouts';
+import {AppModule} from './lite/lite.module';
 
 @NgModule({
     imports: [
@@ -37,6 +38,7 @@ import {
         JhipsterDemo2AdminModule,
         JhipsterDemo2AccountModule,
         JhipsterDemo2EntityModule,
+        AppModule
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [
