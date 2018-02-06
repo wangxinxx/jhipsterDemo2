@@ -18,15 +18,10 @@ import { JhipsterDemo2AccountModule } from './account/account.module';
 import { JhipsterDemo2EntityModule } from './entities/entity.module';
 import { PaginationConfig } from './blocks/config/uib-pagination.config';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
-import {
-    JhiMainComponent,
-    NavbarComponent,
-    FooterComponent,
-    ProfileService,
-    PageRibbonComponent,
-    ErrorComponent
-} from './layouts';
+
 import {AppModule} from './lite/lite.module';
+import {JhiIndexComponent} from './index.component';
+import {JhipsterDemo2LayoutsModule} from './layouts/layouts.module';
 
 @NgModule({
     imports: [
@@ -35,22 +30,16 @@ import {AppModule} from './lite/lite.module';
         JhipsterDemo2AppRoutingModule,
         Ng2Webstorage.forRoot({ prefix: 'jhi', separator: '-'}),
         JhipsterDemo2SharedModule,
-        JhipsterDemo2HomeModule,
-        JhipsterDemo2AdminModule,
-        JhipsterDemo2AccountModule,
-        JhipsterDemo2EntityModule,
-        AppModule
+        // JhipsterDemo2AdminModule,
+        // JhipsterDemo2EntityModule,
+        AppModule,
+        JhipsterDemo2LayoutsModule
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [
-        JhiMainComponent,
-        NavbarComponent,
-        ErrorComponent,
-        PageRibbonComponent,
-        FooterComponent
+        JhiIndexComponent
     ],
     providers: [
-        ProfileService,
         PaginationConfig,
         UserRouteAccessService,
         {
@@ -87,6 +76,6 @@ import {AppModule} from './lite/lite.module';
             ]
         }
     ],
-    bootstrap: [ JhiMainComponent ]
+    bootstrap: [ JhiIndexComponent ]
 })
 export class JhipsterDemo2AppModule {}

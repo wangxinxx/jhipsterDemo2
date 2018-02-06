@@ -1,7 +1,8 @@
 <div>
     <h2>
         <span>Base Questions</span>
-        <button class="btn btn-primary float-right jh-create-entity create-base-question-exam" [routerLink]="['/', { outlets: { popup: ['base-question-exam-new'] } }]">
+        <button class="btn btn-primary float-right jh-create-entity create-base-question-exam"
+                [routerLink]="['/admin/question', { outlets: { popup: ['base-question-exam-new'] } }]">
             <span class="fa fa-plus"></span>
             <span >
             Create new Base Question
@@ -56,7 +57,7 @@
                             <span class="d-none d-md-inline">View</span>
                         </button>
                         <button type="submit"
-                                [routerLink]="['/', { outlets: { popup: 'base-question-exam/'+ baseQuestion.id + '/edit'} }]"
+                                [routerLink]="['/admin/question', { outlets: { popup: 'base-question-exam/'+ baseQuestion.id + '/edit'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
                                 class="btn btn-primary btn-sm">
@@ -64,7 +65,7 @@
                             <span class="d-none d-md-inline">Edit</span>
                         </button>
                         <button type="submit"
-                                [routerLink]="['/', { outlets: { popup: 'base-question-exam/'+ baseQuestion.id + '/delete'} }]"
+                                [routerLink]="['/admin/question', { outlets: { popup: 'base-question-exam/'+ baseQuestion.id + '/delete'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
                                 class="btn btn-danger btn-sm">

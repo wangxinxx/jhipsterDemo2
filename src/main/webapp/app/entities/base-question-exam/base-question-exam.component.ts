@@ -64,19 +64,20 @@ currentAccount: any;
         }
     }
     transition() {
-        this.router.navigate(['/base-question-exam'], {queryParams:
+        this.router.navigate(['../base-question-exam'], {queryParams:
             {
                 page: this.page,
                 size: this.itemsPerPage,
                 sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
-            }
+            },
+            relativeTo: this.activatedRoute
         });
         this.loadAll();
     }
 
     clear() {
         this.page = 0;
-        this.router.navigate(['/base-question-exam', {
+        this.router.navigate(['./base-question-exam', {
             page: this.page,
             sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
         }]);

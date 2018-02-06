@@ -10,15 +10,15 @@ import {JhipsterDemo2BaseQuestionExamModule} from '../entities/base-question-exa
 
 export const liteRoutes: Routes = [
     {
-        path: 'lite',
+        path: 'admin',
         component: MainLayoutComponent,
         children: [
             {
-                path: '',
+                path: 'question',
                 loadChildren: '../entities/base-question-exam/base-question-exam.module#JhipsterDemo2BaseQuestionExamModule'
             },
             {
-                path: 'home',
+                path: '',
                 loadChildren: './+home/home.module#HomeModule'
             },
         ]

@@ -1,16 +1,21 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { errorRoute, navbarRoute } from './layouts';
+import {RouterModule, Routes} from '@angular/router';
+import {errorRoute} from './layouts';
 import { DEBUG_INFO_ENABLED } from './app.constants';
+import {navbarRoute} from './app.route';
 
-const LAYOUT_ROUTES = [
+const APP_ROUTES: Routes = [
     navbarRoute,
-    ...errorRoute
-];
+    ...errorRoute, {
+        path: '',
+        redirectTo: 'index',
+        pathMatch: 'full'
+    }
+]
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(LAYOUT_ROUTES, { useHash: true , enableTracing: DEBUG_INFO_ENABLED })
+        RouterModule.forRoot(APP_ROUTES, { useHash: true , enableTracing: DEBUG_INFO_ENABLED })
     ],
     exports: [
         RouterModule

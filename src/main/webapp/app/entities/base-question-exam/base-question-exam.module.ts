@@ -1,5 +1,5 @@
 import {NgModule, CUSTOM_ELEMENTS_SCHEMA, Injector} from '@angular/core';
-import { RouterModule } from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 
 import { JhipsterDemo2SharedModule } from '../../shared';
 import {
@@ -23,7 +23,7 @@ import {LocalStorageService, SessionStorageService} from 'ngx-webstorage';
 import {NotificationInterceptor} from '../../blocks/interceptor/notification.interceptor';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 
-const ENTITY_STATES = [
+const ENTITY_STATES: Routes = [
     ...baseQuestionRoute,
     ...baseQuestionPopupRoute,
 ];

@@ -3,7 +3,8 @@ import { RouterModule } from '@angular/router';
 
 import { JhipsterDemo2SharedModule } from '../shared';
 
-import { HOME_ROUTE, HomeComponent } from './';
+import { HomeComponent } from './';
+import {HOME_ROUTE} from './home.route';
 
 @NgModule({
     imports: [
