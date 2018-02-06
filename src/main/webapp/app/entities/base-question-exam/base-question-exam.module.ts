@@ -1,4 +1,4 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import {NgModule, CUSTOM_ELEMENTS_SCHEMA, Injector} from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { JhipsterDemo2SharedModule } from '../../shared';
@@ -15,6 +15,13 @@ import {
     baseQuestionPopupRoute,
     BaseQuestionExamResolvePagingParams,
 } from './';
+import {AuthExpiredInterceptor} from '../../blocks/interceptor/auth-expired.interceptor';
+import {ErrorHandlerInterceptor} from '../../blocks/interceptor/errorhandler.interceptor';
+import {JhiEventManager} from 'ng-jhipster';
+import {AuthInterceptor} from '../../blocks/interceptor/auth.interceptor';
+import {LocalStorageService, SessionStorageService} from 'ngx-webstorage';
+import {NotificationInterceptor} from '../../blocks/interceptor/notification.interceptor';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
 
 const ENTITY_STATES = [
     ...baseQuestionRoute,
@@ -45,6 +52,39 @@ const ENTITY_STATES = [
         BaseQuestionExamService,
         BaseQuestionExamPopupService,
         BaseQuestionExamResolvePagingParams,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: AuthInterceptor,
+            multi: true,
+            deps: [
+                LocalStorageService,
+                SessionStorageService
+            ]
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: AuthExpiredInterceptor,
+            multi: true,
+            deps: [
+                Injector
+            ]
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: ErrorHandlerInterceptor,
+            multi: true,
+            deps: [
+                JhiEventManager
+            ]
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: NotificationInterceptor,
+            multi: true,
+            deps: [
+                Injector
+            ]
+        }
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

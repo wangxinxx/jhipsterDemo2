@@ -6,14 +6,16 @@ import {Routes, RouterModule} from '@angular/router';
 import {MainLayoutComponent} from './shared/layout/app-layouts/main-layout.component';
 import {AuthLayoutComponent} from './shared/layout/app-layouts/auth-layout.component';
 import {ModuleWithProviders} from '@angular/core';
+import {JhipsterDemo2BaseQuestionExamModule} from '../entities/base-question-exam/base-question-exam.module';
 
-export const routes: Routes = [
+export const liteRoutes: Routes = [
     {
         path: 'lite',
         component: MainLayoutComponent,
         children: [
             {
-                path: '', redirectTo: 'home', pathMatch: 'full'
+                path: '',
+                loadChildren: '../entities/base-question-exam/base-question-exam.module#JhipsterDemo2BaseQuestionExamModule'
             },
             {
                 path: 'home',
@@ -24,4 +26,4 @@ export const routes: Routes = [
 
 ];
 
-export const routing: ModuleWithProviders = RouterModule.forChild(routes);
+// export const routing: ModuleWithProviders = RouterModule.forChild(routes);
