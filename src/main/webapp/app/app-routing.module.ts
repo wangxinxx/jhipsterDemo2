@@ -11,7 +11,7 @@ const APP_ROUTES: Routes = [
         redirectTo: 'index',
         pathMatch: 'full'
     }
-]
+];
 
 @NgModule({
     imports: [

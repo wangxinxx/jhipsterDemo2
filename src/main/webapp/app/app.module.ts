@@ -13,26 +13,25 @@ import { NotificationInterceptor } from './blocks/interceptor/notification.inter
 import { JhipsterDemo2SharedModule, UserRouteAccessService } from './shared';
 import { JhipsterDemo2AppRoutingModule} from './app-routing.module';
 import { JhipsterDemo2HomeModule } from './home/home.module';
-import { JhipsterDemo2AdminModule } from './admin/admin.module';
 import { JhipsterDemo2AccountModule } from './account/account.module';
-import { JhipsterDemo2EntityModule } from './entities/entity.module';
 import { PaginationConfig } from './blocks/config/uib-pagination.config';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 
-import {AppModule} from './lite/lite.module';
+import {SmartAdminModule} from './smartadmin/smart-admin.module';
 import {JhiIndexComponent} from './index.component';
 import {JhipsterDemo2LayoutsModule} from './layouts/layouts.module';
 
 @NgModule({
     imports: [
         BrowserModule,
-        HttpClientModule,
+        HttpClientModule, // OK
         JhipsterDemo2AppRoutingModule,
         Ng2Webstorage.forRoot({ prefix: 'jhi', separator: '-'}),
         JhipsterDemo2SharedModule,
+        JhipsterDemo2AccountModule,
         // JhipsterDemo2AdminModule,
         // JhipsterDemo2EntityModule,
-        AppModule,
+        SmartAdminModule, // OK
         JhipsterDemo2LayoutsModule
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],

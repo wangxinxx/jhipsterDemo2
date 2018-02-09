@@ -1,0 +1,2 @@
+1、去掉admin 的国际化支持,主要是删除i18nService 及 | i18n
+2、导入 admin 相关资源。
